@@ -78,7 +78,8 @@ public {{#generateControllerAsAbstract}}abstract {{/generateControllerAsAbstract
 {{>server/controllerOperationBody}}    }
         {{/generateControllerAsAbstract}}
         {{#generateControllerAsAbstract}}
-        return {{nickname}}({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}});
+        {{#reactive}}return {{nickname}}({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}});{{/reactive}}
+        {{^reactive}}{{#returnType}}return {{/returnType}}{{nickname}}({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}});{{/reactive}}
     }
         {{/generateControllerAsAbstract}}
     {{#generateControllerAsAbstract}}
